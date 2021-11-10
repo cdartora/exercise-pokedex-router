@@ -1,6 +1,7 @@
 import React from 'react';
 import Pokemon from './Pokemon';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import './pokedex.css';
 
 class Pokedex extends React.Component {
@@ -42,7 +43,12 @@ class Pokedex extends React.Component {
 
     return (
       <div className="pokedex">
-        <Pokemon pokemon={pokemon} />
+
+        {/* utiliza template literal pra sempre enviar a url com o nome do pokemon */}
+        <Link to={`/pokemon/${pokemon.name}`}>
+          <Pokemon pokemon={pokemon} />
+        </Link>
+        
         <div className="pokedex-buttons-panel">
           <Button
             onClick={() => this.filterPokemons('all')}
